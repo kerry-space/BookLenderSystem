@@ -53,8 +53,6 @@ public class App
                     System.out.print("Enter book number to lend: ");
                     selectBook = Print.userInput();
                     registerPerson.loanBook(Print.books[selectBook]);
-                    Print.books[selectBook].setIsAvailable(true);
-                    Print.books[selectBook].setLender(registerPerson);
                     System.out.println("*************************************\n\n");
 
                     break;

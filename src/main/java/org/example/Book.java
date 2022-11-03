@@ -1,7 +1,7 @@
 package org.example;
 
 public class Book {
-    //feld
+    //field
     private String title;
     private String author;
     private boolean available;
@@ -10,15 +10,12 @@ public class Book {
 
     //constructor
     public Book(){
-        this.available =false;
+        this.available =true;
     }
     public Book(String title, String author){
         this();
         this.title = title;
         this.author = author;
-
-        ;
-
     }
     // getter
 
@@ -46,18 +43,17 @@ public class Book {
     }
 
     public boolean getIsAvailable() {
-
         return available;
     }
 
     public void setIsAvailable(boolean available){
-
         this.available = available;
     }
 
     public void setLender(Person lender){
        // if (lender == null) throw new IllegalArgumentException("lastName param was null");
         this.lender = lender;
+        this.setIsAvailable(false);
     }
 
     public Person getLender() {
@@ -65,7 +61,9 @@ public class Book {
         return lender;
     }
 
-
+    public String bookInformation(){
+        return this.title+" "+this.available;
+    }
 
     // method
     public  Person showPerson(){

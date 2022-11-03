@@ -8,9 +8,6 @@ public class Person {
     private String firstName;
     private  String lastName;
     private int sequence =100;
-
-
-
     private Book[] books;
 
     //constructor
@@ -55,9 +52,11 @@ public class Person {
      public void loanBook(Book bookLend){
 
 
-            if(bookLend.getIsAvailable() == false ){
-                books = Arrays.copyOf(books, books.length + 1);
-                books[books.length - 1] = bookLend;
+            if(bookLend.getIsAvailable()){
+                bookLend.setLender(this);
+                Book[] temp = Arrays.copyOf(books, books.length + 1);
+                temp[temp.length - 1] = bookLend;
+                books = temp;
                 System.out.println("You borrow "+bookLend.getTitle());
             }else {
                 System.out.println("Book is already borrowed by "+bookLend.getLender().firstName+" "+bookLend.getLender().lastName);
@@ -68,7 +67,7 @@ public class Person {
          System.out.println("Book Title\t\t\t\t\t\t\t Person borrowed book");
          System.out.println("--------------------\t\t\t\t--------------------");
         for(Book book : books){
-            if(book.getIsAvailable() == true){
+            if(!book.getIsAvailable()){
                 System.out.println(book.getTitle()+" "+book.getLender().firstName+" "+book.getLender().lastName);
             }
         }

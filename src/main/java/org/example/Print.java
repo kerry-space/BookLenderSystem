@@ -41,7 +41,7 @@ public class Print {
         System.out.println("----------\t\t\t\t\t\t\t\t -----------\t\t\t---------\t\t\t------------");
         int index = 0;
         for (Book book : books){
-           if(book.getIsAvailable() == true){
+           if(!book.getIsAvailable()){
                System.out.println(index+": "+book.getTitle()+" "+book.getAuthor()+""+book.getIsAvailable()+"\t\t\t\t"+book.getLender().getFirstName()+" "+book.getLender().getLastName());
                index++;
            }
